@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日程提醒 App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>⏰ 日程提醒</h1>
+    <p class="subtitle">添加待办日程，到点自动提醒</p>
+
+    <section class="card">
+      <form id="reminder-form">
+        <label>
+          事项
+          <input id="title" type="text" placeholder="例如：参加站会" required maxlength="60" />
+        </label>
+
+        <label>
+          提醒时间
+          <input id="time" type="datetime-local" required />
+        </label>
+
+        <button type="submit">添加提醒</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="header-row">
+        <h2>提醒列表</h2>
+        <button id="clear-all" class="danger">清空全部</button>
+      </div>
+      <ul id="reminder-list"></ul>
+      <p id="empty-state">还没有日程，马上添加一个吧。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
