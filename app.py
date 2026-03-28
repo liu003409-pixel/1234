@@ -1,4 +1,5 @@
 import json
+import sys
 import uuid
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
@@ -7,7 +8,15 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 
 DATE_FMT = "%Y-%m-%d %H:%M"
-DATA_FILE = Path("todo_data.json")
+
+
+def get_app_dir() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent
+
+
+DATA_FILE = get_app_dir() / "todo_data.json"
 
 
 @dataclass
